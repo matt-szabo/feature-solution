@@ -3,6 +3,8 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser');
+const favicon = require('serve-favicon')
+const path = require('path')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -11,7 +13,9 @@ app.use(bodyParser.urlencoded({
 
 app.set('view engine', 'jade');
 
-// middleware to handle scripts
+// middleware to handle scripts and favicon
+
+app.use(favicon(path.join(__dirname, 'images', 'favicon.ico')))
 
 app.use(express.static('stylesheets'))
 app.use(express.static('javascripts'))
