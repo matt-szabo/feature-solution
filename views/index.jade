@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    div(ng-controller="userCtrl" class="container").
+        <h1>/Hello</h1>
+        <p>Welcome to our coding challenge!</p>
+
+        <hr>
+
+        <form role="form" name="regForm" osd-submit="logon()" novalidate>
+              <osd-field attr="email">
+                  <label class="control-label">Email Address</label>
+                  <input type="email" class="form-control" name="email"
+                         ng-model="currentUser.email" required="required">
+                  <osd-error msg="Email required"></osd-error>
+                  <osd-error error-type="email" msg="Email must be valid"></osd-error>
+
+              </osd-field>
+
+              <osd-field attr="password">
+                  <label class="control-label">Password</label>
+                  <input type="password" class="form-control" name="password"
+                         ng-model="currentUser.password" required="required">
+                  <osd-error msg="Password required"></osd-error>
+              </osd-field>
+
+              <button type="submit" class="btn">Continue</button>
+          </form>
+
+
